@@ -11,10 +11,10 @@ import { join } from 'path';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres', 
-      host: 'localhost', 
+      host: 'db', 
       port: 5432, 
       username: 'postgres', 
-      password: '88776655',
+      password: 'postgres',
       database: 'test', 
       entities: [join(__dirname, '**', '*.entity.{ts,js}')], 
       synchronize: true, 
