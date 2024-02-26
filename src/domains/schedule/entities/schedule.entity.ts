@@ -5,8 +5,9 @@ import {
     ManyToOne,
     JoinColumn,
   } from 'typeorm';
-  import { Doctor } from './doctor.entity';
-  import { Patient } from './patient.entity';
+
+import { Doctor } from 'src/domains/doctor/entities/doctor.entity';
+import { Patient } from 'src/domains/patient/entities/patient.entity';
   
   @Entity('schedules')
   export class Schedule {

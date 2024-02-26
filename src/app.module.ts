@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { Patient } from './entities/patient.entity';
-import { Doctor } from './entities/doctor.entity';
-import { Schedule } from './entities/schedule.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { DoctorModule } from './domains/doctor/doctor.module';
+import { PatientModule } from './domains/patient/patient.module';
+import { ScheduleModule } from './domains/schedule/schedule.module';
+import { NotificationModule } from './domains/notification/notification.module';
+
+
 
 @Module({
   imports: [
@@ -19,9 +20,11 @@ import { join } from 'path';
       entities: [join(__dirname, '**', '*.entity.{ts,js}')], 
       synchronize: true, 
     }),
-    TypeOrmModule.forFeature([Patient, Doctor, Schedule]), 
+    DoctorModule,
+    PatientModule,
+    ScheduleModule,
+    NotificationModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
 })
 export class AppModule {}
